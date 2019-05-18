@@ -1,0 +1,30 @@
+<main role="main" class="flex-shrink-0">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Lista de participantes para el Man vs Wings 2019</h1>
+            <form>
+                <input class="form-control mt-2 mr-sm-2" type="text" placeholder="Filtrar por nombre" ng-model="search.name" ng-change="changeFilterMessage()">
+                <input class="form-control mt-2 mr-sm-2" type="text" placeholder="Filtrar por ciudad" ng-model="search.city" ng-change="changeFilterMessage()">
+                <button class="btn btn-secondary mt-2" ng-click="order = 'name'">Ordenar por nombre</button>
+                <button class="btn btn-secondary mt-2" ng-click="order = 'age'">Ordenar por edad</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="album py-5" style="background-color: firebrick">
+        <div class="text-center">
+            <h3>{{filterMessage}}</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" ng-repeat="contestant in contestants |orderBy: order|filter:search">
+                    <div class="card mb-2 shadow-sm">
+                        <div class="card-body">
+                        <h6>{{contestant.name}} - {{contestant.age}} - {{contestant.city}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

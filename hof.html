@@ -1,0 +1,27 @@
+<main role="main" class="flex-shrink-0">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Salón de la fama de los más tragones</h1>
+            <p class="lead text-muted">Esta banda ha demostrado ser bien pinche tragona, parece que no tienen llenadera los hijos de la chingada.</p>
+            <form>
+                <input class="form-control mr-sm-2" type="text" placeholder="Buscar Tragones" ng-model="search.name">
+            </form>
+        </div>
+    </section>
+
+    <div class="album py-5" style="background-color: firebrick">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" ng-repeat="tragon in tragones |filter:search">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{tragon.img}} " class="img-fluid" alt="">
+                        <div class="card-body">
+                        <h3>{{tragon.name}}</h3>
+                        <p class="card-text">{{tragon.desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,94 @@
+<main role="main">
+    <div class="container">
+        <h2 class="display-3" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Registro para Man vs Wings 2019</h2>
+
+        <form name="registerForm" novalidate ng-submit="addContestant()">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Nombre</label>
+                    <input type="text" name="name" class="form-control" placeholder="Tu nombre" ng-model="newContestant.name" ng-required="true">
+                    <div ng-show="registerForm.name.$touched && registerForm.name.$invalid">
+                        <small style="color:red; display: block; text-align:center">
+                            Introduce un nombre válido
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email">Dirección de correo electrónico</label>
+                    <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" ng-model="newContestant.email" ng-required="true">
+                    <div ng-show="registerForm.email.$touched && registerForm.email.$invalid">
+                        <small style="color:red; display: block; text-align:center">
+                            Introduce un email válido
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="age">Edad</label>
+                    <br>
+                    <input type="number" name="age" id="age" placeholder="18" min="18" ng-model="newContestant.age" ng-required="true">
+                    <div ng-show="registerForm.age.$touched && registerForm.age.$invalid">
+                        <small style="color:red; display: block; text-align:center">
+                            Introduce una edad válida
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="city">Ciudad de origen</label>
+                    <input type="text" name="city" class="form-control" placeholder="Tu ciudad" ng-model="newContestant.city" ng-required="true">
+                    <div ng-show="registerForm.city.$touched && registerForm.city.$invalid">
+                        <small style="color:red; display: block; text-align:center">
+                            Introduce una ciudad válida
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <legend class="col-form-label ">Sabor favorito</legend>
+                
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="favorite" id="gridRadios1" value="BBQ" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            BBQ
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ng-model="newContestant.favorite" name="favorite" id="gridRadios2" value="Buffalo">
+                        <label class="form-check-label" for="gridRadios2">
+                            Buffalo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ng-model="newContestant.favorite" name="favorite" id="gridRadios3" value="Lemon pepper">
+                        <label class="form-check-label" for="gridRadios3">
+                            Lemon pepper
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ng-model="newContestant.favorite" name="favorite" id="gridRadios4" value="Otro">
+                        <label class="form-check-label" for="gridRadios4">
+                            Otro
+                        </label>
+                    </div>
+                    
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group">
+                        <label for="descrip">Cuéntanos sobre tu amor por las alitas</label>
+                        <textarea class="form-control" name="desc" id="descrip" rows="4" ng-model="newContestant.desc" ng-required="true"></textarea>
+                        <div ng-show="registerForm.desc.$touched && registerForm.desc.$invalid">
+                            <small style="color:red; display: block; text-align:center">
+                                Introduce una ciudad válida
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button ng-click="go('/confirmation')" type="submit" style="background-color:darkred; border:darkred"class="btn btn-primary" ng-disabled="registerForm.$invalid">Enviar</button>
+        </form>
+    </div>
+</main>
